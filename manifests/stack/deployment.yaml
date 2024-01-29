@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ttn-lw-stack
+  namespace: thingstack
 spec:
   selector:
     matchLabels:
@@ -52,7 +53,22 @@ spec:
             - name: TTN_LW_BLOB_LOCAL_DIRECTORY
               value: /srv/ttn-lorawan/public/blob
             - name: TTN_LW_REDIS_ADDRESS
-              value: redis:6379
+              value: redis.thingstack.svc.cluster1.local:6379
+            - name: TTN_LW_CONSOLE_UI_AS_BASE_URL 
+              value: https://134.197.75.58:30126/api/v3 
+            - name: TTN_LW_CONSOLE_UI_IS_BASE_URL 
+              value: https://134.197.75.58:30126/api/v3 
+            - name: TTN_LW_OAUTH_SERVER_ADDRESS 
+              value: https://134.197.75.58:30126/oauth
+            - name: TTN_LW_IS_OAUTH_UI_CANONICAL_URL 
+              value: https://134.197.75.58:30126/oauth
+            - name: TTN_LW_IS_OAUTH_UI_IS_BASE_URL 
+              value: https://134.197.75.58:30126/api/v3 
+            #- name: TTN_LW_APPLICATION_SERVER_GRPC_ADDRESS: mydomain:8884
+            #  value: 
+            #- name: TTN_LW_DEVICE_CLAIMING_SERVER_GRPC_ADDRESS: mydomain:8884
+            #  value: 
+    
           image: ttn-stack
           ports:
             - name: http

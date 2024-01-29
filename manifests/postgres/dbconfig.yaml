@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-config
+  namespace: thingstack
+data:
+  my-key: my-value
+  db_uri: postgres://root:root@postgres.thingstack.svc.cluster1.local:5432/ttn_lorawan_dev?sslmode=disable

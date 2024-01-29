@@ -6,8 +6,8 @@ is:
     sender-address: 'noreply@thethings.example.com'
     network:
       name: 'The Things Stack'
-      console-url: 'https://thethings.example.com/console'
-      identity-server-url: 'https://thethings.example.com/oauth'
+      console-url: 'https://134.197.75.58:30126/console'
+      identity-server-url: 'https://134.197.75.58:30126/oauth'
 
     # If sending email with Sendgrid
     # provider: sendgrid
@@ -24,24 +24,24 @@ is:
   # Web UI configuration for "thethings.example.com":
   oauth:
     ui:
-      canonical-url: 'https://thethings.example.com/oauth'
+      canonical-url: 'https://134.197.75.58:30126/oauth'
       is:
-        base-url: 'https://thethings.example.com/api/v3'
+        base-url: 'https://134.197.75.58:30126/api/v3'
 
 # HTTP server configuration
-http:
-  cookie:
-    block-key: ''                # generate 32 bytes (openssl rand -hex 32)
-    hash-key: ''                 # generate 64 bytes (openssl rand -hex 64)
-  metrics:
-    password: 'metrics'               # choose a password
-  pprof:
-    password: 'pprof'                 # choose a password
+#http:
+#  cookie:
+#    block-key: ''                # generate 32 bytes (openssl rand -hex 32)
+#    hash-key: ''                 # generate 64 bytes (openssl rand -hex 64)
+#  metrics:
+#    password: 'metrics'               # choose a password
+#  pprof:
+#    password: 'pprof'                 # choose a password
 
 # If using custom certificates:
 tls:
   source: file
-  #  root-ca: /var/lib/certificates/ca.pem
+  root-ca: /var/lib/certificates/ca.crt
   certificate: /var/lib/certificates/tls.crt
   key: /var/lib/certificates/tls.key
 
@@ -66,34 +66,34 @@ gcs:
 # Web UI configuration for "thethings.example.com":
 console:
   ui:
-    canonical-url: 'https://thethings.example.com/console'
+    canonical-url: 'https://134.197.75.58:30126/console'
     is:
-      base-url: 'https://thethings.example.com/api/v3'
+      base-url: 'https://134.197.75.58:30126/api/v3'
     gs:
-      base-url: 'https://thethings.example.com/api/v3'
+      base-url: 'https://134.197.75.58:30126/api/v3'
     ns:
-      base-url: 'https://thethings.example.com/api/v3'
+      base-url: 'https://134.197.75.58:30126/api/v3'
     as:
-      base-url: 'https://thethings.example.com/api/v3'
+      base-url: 'https://134.197.75.58:30126/api/v3'
     js:
-      base-url: 'https://thethings.example.com/api/v3'
+      base-url: 'https://134.197.75.58:30126/api/v3'
     qrg:
-      base-url: 'https://thethings.example.com/api/v3'
+      base-url: 'https://134.197.75.58:30126/api/v3'
     edtc:
-      base-url: 'https://thethings.example.com/api/v3'
+      base-url: 'https://134.197.75.58:30126/api/v3'
 
   oauth:
-    authorize-url: 'https://thethings.example.com/oauth/authorize'
-    token-url: 'https://thethings.example.com/oauth/token'
-    logout-url: 'https://thethings.example.com/oauth/logout'
+    authorize-url: 'https://134.197.75.58:30126/oauth/authorize'
+    token-url: 'https://134.197.75.58:30126/oauth/token'
+    logout-url: 'https://134.197.75.58:30126/oauth/logout'
     client-id: 'console'
     client-secret: 'console'          # choose or generate a secret
 
 # If Application Server enabled, defaults for "thethings.example.com":
 as:
   mqtt:
-    public-address: 'https://thethings.example.com:1883'
-    public-tls-address: 'https://thethings.example.com:8883'
+    public-address: 'https://134.197.75.58:1883'
+    public-tls-address: 'https://134.197.75.58:8883'
   webhooks:
     downlink:
       public-address: 'thethings.example.com:1885/api/v3'
@@ -101,18 +101,18 @@ as:
 # If Device Claiming Server enabled, defaults for "thethings.example.com":
 dcs:
   oauth:
-    authorize-url: 'https://thethings.example.com/oauth/authorize'
-    token-url: 'https://thethings.example.com/oauth/token'
-    logout-url: 'https://thethings.example.com/oauth/logout'
+    authorize-url: 'https://134.197.75.58:30126/oauth/authorize'
+    token-url: 'https://134.197.75.58:30126/oauth/token'
+    logout-url: 'https://134.197.75.58:30126/oauth/logout'
     client-id: 'device-claiming'
     client-secret: 'device-claiming'          # choose or generate a secret
   ui:
-    canonical-url: 'https://thethings.example.com/claim'
+    canonical-url: 'https://134.197.75.58:30126/claim'
     as:
-      base-url: 'https://thethings.example.com/api/v3'
+      base-url: 'https://134.197.75.58:30126/api/v3'
     dcs:
-      base-url: 'https://thethings.example.com/api/v3'
+      base-url: 'https://134.197.75.58:30126/api/v3'
     is:
-      base-url: 'https://thethings.example.com/api/v3'
+      base-url: 'https://134.197.75.58:30126/api/v3'
     ns:
-      base-url: 'https://thethings.example.com/api/v3'
+      base-url: 'https://134.197.75.58:30126/api/v3'

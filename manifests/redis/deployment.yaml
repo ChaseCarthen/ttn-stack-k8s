@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redis
+  namespace: thingstack
 spec:
   selector:
     matchLabels:
@@ -15,6 +16,7 @@ spec:
       labels:
         app: redis
       name: redis
+      namespace: thingstack
     spec:
       containers:
         - name: redis

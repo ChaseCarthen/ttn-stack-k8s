@@ -4,13 +4,13 @@ kind: Kustomization
 # Add this is you want to expose the admin dashboard of traefik
 # - traefik/ingress.yaml
 resources:
-- cert-issuer.yaml
-- traefik/rbac.yaml
-- traefik/crd.yaml
-- traefik/configmap.yaml
-- traefik/deployment.yaml
-- traefik/service.yaml
-- traefik/service_dashboard.yaml
+#- cert-issuer.yaml
+#- traefik/rbac.yaml
+#- traefik/crd.yaml
+#- traefik/configmap.yaml
+#- traefik/deployment.yaml
+#- traefik/service.yaml
+#- traefik/service_dashboard.yaml
 - redis/deployment.yaml
 - redis/pvc.yaml
 - redis/service.yaml
@@ -18,19 +18,22 @@ resources:
 - stack/deployment.yaml
 - stack/service.yaml
 - stack/ingress.yaml
-- prometheus/psp.yaml
-- prometheus/rbac.yaml
-- prometheus/configmap.yaml
-- prometheus/pvc.yaml
-- prometheus/deployment.yaml
-- prometheus/service.yaml
-- grafana/deployment.yaml
-- grafana/pvc.yaml
-- grafana/service.yaml
-- grafana/ingress.yaml
+- postgres/statefulset.yaml
+- postgres/dbconfig.yaml
+- postgres/outcm.yaml
+#- prometheus/psp.yaml
+#- prometheus/rbac.yaml
+#- prometheus/configmap.yaml
+#- prometheus/pvc.yaml
+#- prometheus/deployment.yaml
+#- prometheus/service.yaml
+#- grafana/deployment.yaml
+#- grafana/pvc.yaml
+#- grafana/service.yaml
+#- grafana/ingress.yaml
 
 # namespace to deploy all Resources to
-namespace: lorawan-stack
+namespace: thingstack
 
 # labels added to all Resources
 commonLabels:
@@ -45,12 +48,12 @@ images:
   - name: redis
     newName: redis
     newTag: "6.2-rc"
-  - name: prometheus
-    newName: prom/prometheus
-    newTag: v2.19.0
-  - name: grafana
-    newName: grafana/grafana
-    newTag: "7.3.6"
+  #- name: prometheus
+  #  newName: prom/prometheus
+  #  newTag: v2.19.0
+  #- name: grafana
+  #  newName: grafana/grafana
+  #  newTag: "7.3.6"
   - name: ttn-stack
     newName: thethingsnetwork/lorawan-stack
     newTag: "3.10"
